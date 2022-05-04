@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
 import app from '../../firebase';
 import Chat from './Chat';
-
-import { getDatabase, ref, set,push } from "firebase/database";
+import { getDownloadURL, getStorage, uploadBytes, uploadBytesResumable } from "firebase/storage";
+import { getDatabase, ref, set, push } from "firebase/database";
+import { ref as sRef } from 'firebase/storage';
 class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            message: ''
+            message: '',
+            files: [],
+            url: ""
         }
     }
 
@@ -19,25 +22,56 @@ class Home extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         if (this.state.message !== '') {
+            let dUrl = "";
+            if (this.files !== null) {
+                const storage = getStorage(app);
+                console.log(this.state.files.name)
+                const storageRef = sRef(storage, "images/" + this.state.files.name);
+                uploadBytes(storageRef, this.state.files)
+                const uploadTask = uploadBytesResumable(storageRef, this.state.files);
+                uploadTask.on('state_changed',
+                    snapshot => {
+                        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        console.log('Upload is ' + progress + '% done');
+                    },
+
+                    error => {
+                        console.log(error)
+                    },
+                    () => {
+                        // Handle successful uploads on complete
+                        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+                        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                            console.log('File available at', downloadURL);
+                            dUrl = downloadURL;
+
+                            this.setState({ url: downloadURL })
+                        })
+                    })
+            }
+            console.log(dUrl)
             const db = getDatabase();
-            
-            set(push(ref(db, "general")), {
-            // set(push(ref(db, "general/" + new Date().getTime())), {
+
+            set(push(ref(db, "msg")), {
+                // set(push(ref(db, "general/" + new Date().getTime())), {
                 message: this.state.message,
                 user: this.props.user.displayName,
+                img: this.state.url,
                 timestamp: new Date().getTime()
             });
-            //   const chatRef = app.database().ref('test');
-            //   const chat = {
-            //     message: this.state.message,
-            //     user: this.props.user.displayName,
-            //     timestamp: new Date().getTime()
-            //   }
 
-            //   chatRef.push(chat);
-            //   this.setState({message: ''});
         }
         this.setState({ message: '' });
+        this.setState({ url: "" })
+    }
+    handleImg = (e) => {
+        let files = e.target.files;
+        this.setState({ files: files[0] }, () => { console.log(this.state.files) });
+        console.log(files[0]);
+        // const image = e.target.files[0]
+        // console.log(image.name)
+        // this.setState({ image })
+        // console.log(this.image.name)
     }
     render() {
         return (
@@ -48,6 +82,7 @@ class Home extends React.Component {
                     <div className="allow-chat">
                         <form className="send-chat" onSubmit={this.handleSubmit}>
                             <input type="text" name="message" id="message" value={this.state.message} onChange={this.handleChange} placeholder='Digite sua mensagem' />
+                            <input type="file" onChange={e => this.handleImg(e)} accept='image/png' />
                         </form>
                         <Chat></Chat>
                     </div>

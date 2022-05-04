@@ -13,7 +13,7 @@ class Chat extends React.Component {
     componentDidMount() {
 
         const db = getDatabase();
-        const chatRef = ref(db, 'general/');
+        const chatRef = ref(db, 'msg/');
         onValue(chatRef, (snapshot) => {
             const data = snapshot.val();
             let ascChats = [];
@@ -22,32 +22,38 @@ class Chat extends React.Component {
                     id: chat,
                     message: data[chat].message,
                     user: data[chat].user,
-                    date: data[chat].timestamp
+                    date: data[chat].timestamp,
+                    img: data[chat].img
                 });
             }
             const chats = ascChats.reverse();
             this.setState({ chats });
         });
-        
+
 
     }
     render() {
         return (
             <div className="chatbox">
                 {/* {console.log(this.chats)} */}
-            <ul className='chat-list'>
-              {this.state.chats.map(chat => {
-                const postDate = new Date(chat.date);
-                return(
-                  <li key={chat.id}>
-                    <em>{postDate.getDate() + '/' + (postDate.getMonth()+1)}</em>								 
-                    <strong>{chat.user}:</strong> 								 
-                    {chat.message}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+                <ul className='chat-list'>
+                    {this.state.chats.map(chat => {
+                        const postDate = new Date(chat.date);
+                        return (
+                            <li key={chat.id}>
+                                <em>{postDate.getDate() + '/' + (postDate.getMonth() + 1)}</em>
+                                <strong>{chat.user}:</strong>
+                                {chat.message}
+                                {chat.img === "" ?
+                                    <img src={chat.img} alt={chat.img} />
+                                :
+                                <></>
+                                }
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
         );
     }
 }

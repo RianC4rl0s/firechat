@@ -10,7 +10,8 @@ const firebaseConfig = {
   apiKey: "AIzaSyAqr3s1KDjJOnmWGaD_fRkOL62V4FXbOlc",
   authDomain: "firechat-79b8b.firebaseapp.com",
   projectId: "firechat-79b8b",
-  storageBucket: "firechat-79b8b.appspot.com",
+//   storageBucket: "firechat-79b8b.appspot.com",
+  storageBucket: "gs://firechat-79b8b.appspot.com/",
   messagingSenderId: "209700885076",
   appId: "1:209700885076:web:b88c61eabe55f0e33e93c1"
 };
