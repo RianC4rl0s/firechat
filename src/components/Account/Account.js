@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-// eslint-disable-next-line no-unused-vars
 import app from '../../firebase.js'
 import { getAuth, updateProfile, deleteUser } from "firebase/auth";
 import { useNavigate } from "react-router";
@@ -46,13 +45,14 @@ const Account = () => {
             <form onSubmit={handleSubmit}>
 
                 <label htmlFor="username">Novo nome</label>
-                <input type="text" name="username" id="username" value={name} onChange={(e) => setName(e.target.value)} />
-                <button onClick={(e) => {
-                    e.preventDefault()
-                    navigate(-1)
-                }}>Voltar</button>
+                <input type="text" name="username" id="username" onChange={(e) => setName(e.target.value)} />
+                {name}
+                <br />
             </form>
-            {name}
+            <button onClick={(e) => {
+                e.preventDefault()
+                navigate(-1)
+            }}>Voltar</button>
             {erro}
             <button style={{ backgroundColor: "red", color: "wite" }} onClick={handleDelete}>Deletar conta</button>
         </>
