@@ -71,14 +71,14 @@ class Register extends React.Component {
 		const { email, username, password, error, hasUser } = this.state;
 		return (
 			<div className="auth--container">
-				<h1>Register your account</h1>
+				<h1>Registre uma nova conta</h1>
 				{error && <p className="error-message">{error.message}</p>}
 				<form onSubmit={this.handleSubmit}>
-					<label htmlFor="username">Username</label>
-					<input type="text" name="username" id="username" value={username} onChange={this.handleChange} />
-					<label htmlFor="email">Email address</label>
+					<label class= "container1" htmlFor="username">Usuario</label>
+					<input class= "container1" type="text" name="username" id="username" value={username} onChange={this.handleChange} />
+					<label class= "container1"  htmlFor="email">Email </label>
 					<input type="text" name="email" id="email" value={email} onChange={this.handleChange} />
-					<label htmlFor="password">Choose a password</label>
+					<label class= "container1" htmlFor="password">Senha</label>
 					<input
 						type="password"
 						name="password"
@@ -86,8 +86,8 @@ class Register extends React.Component {
 						value={password}
 						onChange={this.handleChange}
 					/>
-					<button className="general-submit" children="Get Started" />
-					<p>Already have an account? <Link className="login-btn" to="/login">Login here</Link></p>
+					<button className="general-submit" class = "container1" children="Criar conta" />
+					<p>Já possui uma conta ? <Link className="login-btn" to="/login">Logar aqui</Link></p>
 				</form>
 				{hasUser && (
 					<Navigate to="/" replace={true} />

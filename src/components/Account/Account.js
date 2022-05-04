@@ -44,7 +44,7 @@ const Account = () => {
         <>
             <form onSubmit={handleSubmit}>
 
-                <label htmlFor="username">Novo nome</label>
+                <label class = "container1" htmlFor="username">Novo nome</label>
                 <input type="text" name="username" id="username" onChange={(e) => setName(e.target.value)} />
                 {name}
                 <br />
@@ -54,7 +54,7 @@ const Account = () => {
                 navigate(-1)
             }}>Voltar</button>
             {erro}
-            <button style={{ backgroundColor: "red", color: "wite" }} onClick={handleDelete}>Deletar conta</button>
+            <button style={{ backgroundColor: "red", color: "white", borderRadius: "5px" }} onClick={handleDelete}>Deletar conta</button>
         </>
     )
 }

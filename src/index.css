@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.div1{
+  font-family: "Times New Roman", Times, serif;
+  border-style: groove;
+    width:230px;
+    border:2px solid black;
+    padding:5px;
+    border-radius: 10px;
+    background-color: black;
+}
+
+.Link1{
+  background-color: #e7e7e7; color: black;
+  border-radius: 15px;
+  color:black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+
+}
