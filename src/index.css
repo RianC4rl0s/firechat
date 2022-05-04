@@ -16,10 +16,10 @@ code {
   font-family: "Times New Roman", Times, serif;
   border-style: groove;
     width:230px;
-    border:2px solid black;
+    /* border:2px solid black; */
     padding:5px;
     border-radius: 10px;
-    background-color: black;
+    /* background-color: black; */
 }
 
 .Link1{

@@ -39,16 +39,16 @@ class AppRouter extends React.Component {
         <div className="app">
           <nav className="main-nav">
             {!this.state.user &&
-              <div class ="div1">
-                <Link class = "Link1"to="/login">Logar</Link>
-                <Link  class = "Link1" to="/register">Cadastrar-se</Link>
+              <div className ="div1">
+                <Link className = "Link1"to="/login">Logar</Link>
+                <Link  className = "Link1" to="/register">Cadastrar-se</Link>
               </div>
             }
 
             {this.state.user &&
-              <div class = "div1">
-                <a class = "Link1"href="#!" onClick={this.logOutUser}>Sair</a>
-                <Link class ="Link1"to="/accout">Conta</Link>
+              <div className = "div1">
+                <a className = "Link1"href="#!" onClick={this.logOutUser}>Sair</a>
+                <Link className ="Link1"to="/accout">Conta</Link>
               </div>
             }
           </nav>

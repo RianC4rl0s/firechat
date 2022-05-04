@@ -44,7 +44,7 @@ class Chat extends React.Component {
                                 <em>{postDate.getDate() + '/' + (postDate.getMonth() + 1)}</em>
                                 <strong>{chat.user}:</strong>
                                 {chat.message}
-                                {chat.img === "" ?
+                                {chat.img !== "" ?
                                     <img src={chat.img} alt={chat.img} />
                                 :
                                 <></>

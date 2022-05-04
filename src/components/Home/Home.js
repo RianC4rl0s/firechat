@@ -6,6 +6,7 @@ import Chat from './Chat';
 import { getDownloadURL, getStorage, uploadBytes, uploadBytesResumable } from "firebase/storage";
 import { getDatabase, ref, set, push } from "firebase/database";
 import { ref as sRef } from 'firebase/storage';
+
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -19,37 +20,49 @@ class Home extends React.Component {
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value });
     }
+   
+    async upimage() {
+        let rurl = ''
+        if (this.state.files !== null || this.state.files.name !== "") {
+            const storage = getStorage(app);
+            console.log(this.state.files.name)
+            const storageRef = sRef(storage, "images/" + this.state.files.name);
+            uploadBytes(storageRef, this.state.files)
+            const uploadTask = uploadBytesResumable(storageRef, this.state.files);
+            uploadTask.on('state_changed',
+                snapshot => {
+                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    console.log('Upload is ' + progress + '% done');
+                },
+
+                error => {
+                    console.log(error)
+                },
+                () => {
+                    // Handle successful uploads on complete
+                    // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+                      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                        console.log('File available at', downloadURL);
+                        // dUrl = downloadURL;
+                        rurl = downloadURL;
+
+                        this.setState({ url: downloadURL },()=>{console.log(this.state.url)})
+                    })
+                })
+        }
+        return rurl
+    }
     handleSubmit = e => {
         e.preventDefault();
         if (this.state.message !== '') {
             let dUrl = "";
-            if (this.files !== null) {
-                const storage = getStorage(app);
-                console.log(this.state.files.name)
-                const storageRef = sRef(storage, "images/" + this.state.files.name);
-                uploadBytes(storageRef, this.state.files)
-                const uploadTask = uploadBytesResumable(storageRef, this.state.files);
-                uploadTask.on('state_changed',
-                    snapshot => {
-                        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                        console.log('Upload is ' + progress + '% done');
-                    },
-
-                    error => {
-                        console.log(error)
-                    },
-                    () => {
-                        // Handle successful uploads on complete
-                        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-                        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                            console.log('File available at', downloadURL);
-                            dUrl = downloadURL;
-
-                            this.setState({ url: downloadURL })
-                        })
-                    })
+            if (this.state.files.name !== "" || this.state.files.name !== null) {
+                dUrl = this.upimage();
             }
+
             console.log(dUrl)
+            console.log(this.state.url)
+
             const db = getDatabase();
 
             set(push(ref(db, "msg")), {
@@ -57,6 +70,7 @@ class Home extends React.Component {
                 message: this.state.message,
                 user: this.props.user.displayName,
                 img: this.state.url,
+                // img: dUrl,
                 timestamp: new Date().getTime()
             });
 
