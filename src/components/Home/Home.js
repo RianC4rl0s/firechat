@@ -89,7 +89,7 @@ class Home extends React.Component {
                 }
                 {!this.props.user &&
                     <div className="disallow-chat">
-                        <p><Link to="/login">Login</Link> or <Link to="/register">Cadastre-se</Link> Para bater um papo!</p>
+                        <p><Link to="/login">Logar</Link> ou <Link to="/register">Cadastre-se</Link> Para bater um papo!</p>
                     </div>
                 }
             </div>
