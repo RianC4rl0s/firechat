@@ -13,7 +13,8 @@ class Home extends React.Component {
         this.state = {
             message: '',
             files: [],
-            url: ""
+            url: "",
+            error:""
         }
     }
 
@@ -96,7 +97,7 @@ class Home extends React.Component {
                     <div className="allow-chat">
                         <form className="send-chat" onSubmit={this.handleSubmit}>
                             <input type="text" name="message" id="message" value={this.state.message} onChange={this.handleChange} placeholder='Digite sua mensagem' />
-                            <input type="file" onChange={e => this.handleImg(e)} accept='image/png' />
+                            <input type="file"  onChange={e => this.handleImg(e)} accept='image/png' />
                         </form>
                         <Chat></Chat>
                     </div>

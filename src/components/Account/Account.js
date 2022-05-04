@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+// eslint-disable-next-line no-unused-vars
 import app from '../../firebase.js'
 import { getAuth, updateProfile, deleteUser } from "firebase/auth";
 import { useNavigate } from "react-router";

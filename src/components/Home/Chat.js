@@ -45,7 +45,7 @@ class Chat extends React.Component {
                                 <strong>{chat.user}:</strong>
                                 {chat.message}
                                 {chat.img !== "" ?
-                                    <img src={chat.img} alt={chat.img} />
+                                    <img height="40px" src={chat.img} alt={chat.img} />
                                 :
                                 <></>
                                 }
