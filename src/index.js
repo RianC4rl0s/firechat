@@ -1,13 +1,74 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import Home from './components/Home/Home';
+import Login from './components/Auth/Login';
+import Register from './components/Auth/Register';
 import reportWebVitals from './reportWebVitals';
+import app from './firebase'
+import { getAuth } from 'firebase/auth';
+import { BrowserRouter as Router, Route, Link, Routes as Switch } from 'react-router-dom';
 
+
+class AppRouter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { user: null }
+    this.logOutUser = this.logOutUser.bind(this);
+
+  }
+  componentDidMount() {
+    const auth = getAuth();
+
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        this.setState({ user });
+      }
+    })
+  }
+  logOutUser = () => {
+    getAuth().signOut()
+      .then(window.location = "/");
+  }
+  render() {
+    return (
+
+      <Router>
+        <div className="app">
+          <nav className="main-nav">
+            {!this.state.user &&
+              <div>
+                <Link to="/login">Login</Link>
+                <Link to="/register">Register</Link>
+              </div>
+            }
+
+            {this.state.user &&
+              <a href="#!" onClick={this.logOutUser}>Logout</a>
+            }
+          </nav>
+          <Switch>
+            <Route path="/" element={<Home user={this.state.user} />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register></Register>} />
+            <Route
+              path="*"
+              element={
+                <main style={{ padding: "1rem" }}>
+                  <p>Rota invalida</p>
+                </main>
+              }
+            />
+          </Switch>
+        </div>
+      </Router>
+    )
+  }
+}
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <AppRouter />
   </React.StrictMode>
 );
 
