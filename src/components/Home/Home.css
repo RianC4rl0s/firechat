@@ -1,0 +1,22 @@
+.allow-chat{
+    text-align: start;
+}
+.home--container{
+    margin-top:10px;
+    margin-left:auto;
+    margin-right:auto;
+    width: 500px;
+    text-align: center;
+    background-color: white;
+    padding: 10px 10px 10px 10px;
+    min-height: 70vh;
+    box-shadow: 3px 3px 10px rgb(122, 122, 122);
+}
+
+.userLabel{
+    color: rgb(0, 105, 196);
+    font-size: .75em;
+}
+.msgList{
+    list-style-image:none;
+}

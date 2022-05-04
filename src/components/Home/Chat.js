@@ -1,6 +1,8 @@
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import app from "../../firebase"
+
+import "./Home.css"
 import { getDatabase, ref, onValue } from "firebase/database";
 class Chat extends React.Component {
     constructor(props) {
@@ -36,18 +38,18 @@ class Chat extends React.Component {
         return (
             <div className="chatbox">
                 {/* {console.log(this.chats)} */}
-                <ul className='chat-list'>
+                <ul className='msgList'>
                     {this.state.chats.map(chat => {
                         const postDate = new Date(chat.date);
                         return (
                             <li key={chat.id}>
-                                <em>{postDate.getDate() + '/' + (postDate.getMonth() + 1)}</em>
-                                <strong>{chat.user}:</strong>
+                                <label className='userLabel'>{chat.user}</label><br />
                                 {chat.message}
+                                {postDate.getDate() + '/' + (postDate.getMonth() + 1)}
                                 {chat.img !== "" ?
                                     <img height="40px" src={chat.img} alt={chat.img} />
-                                :
-                                <></>
+                                    :
+                                    <></>
                                 }
                             </li>
                         );

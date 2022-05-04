@@ -43,10 +43,10 @@ class Register extends React.Component {
 
 		signInWithEmailAndPassword(auth, email, password)
 			.then(() => {
-			
-						let hasUser = true;
-						this.setState({ hasUser })
-					
+
+				let hasUser = true;
+				this.setState({ hasUser })
+
 			})
 			.catch(error => {
 				this.setState({ error });
@@ -55,28 +55,30 @@ class Register extends React.Component {
 	render() {
 		const { email, password, error, hasUser } = this.state;
 		return (
-			<div class = "container1 "className="auth--container">
-				<h1>Realizar login</h1>
-				{error && <p className="error-message">{error.message}</p>}
-				<form onSubmit={this.handleSubmit}>
-					
-					<label  class= "container1"htmlFor="email"> Email: </label>
-					<input  class= "container1"type="text" name="email" id="email" value={email} onChange={this.handleChange} />
-					<label  class= "container1" htmlFor="password"> Senha: </label>
-					<input
-						type="password"
-						name="password"
-						id="password"
-						value={password}
-						onChange={this.handleChange}
-					/>
-					<button className="general-submit" class = "container1" children="Logar" />
-					<p>Já possui uma conta ?  <Link to="/register">Criar conta</Link></p>
-				</form>
-				{hasUser && (
-					<Navigate to="/" replace={true} />
-				)}
-			</div>
+			
+				<div className="auth--container">
+					<h3>Realizar login</h3>
+					{error && <p className="error-message">{error.message}</p>}
+					<form onSubmit={this.handleSubmit}>
+
+						<label className="container1" htmlFor="email"> Email: </label><br/>
+						<input className="container1" type="text" name="email" id="email" value={email} onChange={this.handleChange} /><br/>
+						<label className="container1" htmlFor="password"> Senha: </label><br/>
+						<input
+							type="password"
+							name="password"
+							id="password"
+							value={password}
+							onChange={this.handleChange}
+						/><br/>
+						<button className="bnt-success" children="Logar" />
+						<p>Não possui uma conta ?  <Link to="/register">Criar conta</Link></p>
+					</form>
+					{hasUser && (
+						<Navigate to="/" replace={true} />
+					)}
+				</div>
+			
 		);
 	}
 }

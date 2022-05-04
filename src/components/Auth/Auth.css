@@ -1,6 +1,61 @@
-.container1 {
-    display: flex;
-    flex-wrap: nowrap;
-    font-family: "Times New Roman", Times, serif;
-  }
+/* .container1 {
+  display: flex;
+  flex-wrap: nowrap;
+  font-family: "Times New Roman", Times, serif;
+} */
 
+.auth--container {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  text-align: center;
+  background-color: white;
+  padding: 10px 10px 10px 10px;
+  min-height: 70vh;
+  box-shadow: 3px 3px 10px rgb(122, 122, 122);
+}
+
+
+.bnt-success {
+  border: none;
+  height: 25px;
+  background-color: rgb(9, 181, 95);
+  color: white;
+
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
+  margin: 5px 5px 5px 5px;
+  -webkit-transition: box-shadow 100ms linear;
+  -ms-transition: box-shadow 100ms linear;
+  transition: box-shadow 100ms linear;
+
+  border-radius: 8px;
+}
+
+.bnt-success:hover {
+  background-color: rgb(2, 214, 108);
+  box-shadow: 2px 2px 3px #888;
+
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
+  margin: 5px 5px 5px 5px;
+  -webkit-transition: box-shadow 100ms linear;
+  -ms-transition: box-shadow 100ms linear;
+  transition: box-shadow 100ms linear;
+}
+
+.bnt-success:active {
+  background-color: rgb(1, 132, 66);
+  box-shadow: 2px 2px 3px #888;
+
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
+  margin: 5px 5px 5px 5px;
+  -webkit-transition: box-shadow 100ms linear;
+  -ms-transition: box-shadow 100ms linear;
+  transition: box-shadow 100ms linear;
+}

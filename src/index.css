@@ -5,33 +5,107 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(0, 139, 190);
 }
-
+body input{
+  height: 25px;
+  border: none;
+  border-radius:5px;
+  box-shadow: 1px 1px 4px #777;
+  margin: 5px;
+}
+/* body input[type='file'] {
+  display: none
+} */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-.div1{
+.right {
+  float: right;
   font-family: "Times New Roman", Times, serif;
-  border-style: groove;
-    width:230px;
-    /* border:2px solid black; */
-    padding:5px;
-    border-radius: 10px;
-    /* background-color: black; */
+  /* border-style: groove; */
+  /* width:230px; */
+
+  /* padding: 5px; */
+  height: 60px;
+
 }
 
-.Link1{
-  background-color: #e7e7e7; color: black;
-  border-radius: 15px;
-  color:black;
-  padding: 10px 20px;
+.Link1 {
+  color: gray;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  /* margin: 4px 2px; */
   cursor: pointer;
+  /* height: 100%; */
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
+  margin: 5px 5px 5px 5px;
+  -webkit-transition: box-shadow 100ms linear;
+  -ms-transition: box-shadow 100ms linear;
+  transition: box-shadow 100ms linear;
 
+
+  height: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  border-radius: 8px;
+
+  vertical-align: middle;
+  line-height: normal;
+}
+
+/* .Link1 a {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+} */
+
+.Link1:hover {
+  height: 21px;
+  background-color: rgb(0, 152, 228);
+
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
+
+  box-shadow: 2px 2px 6px #777;
+  -webkit-transition: box-shadow 150ms linear;
+  -ms-transition: box-shadow 150ms linear;
+  transition: box-shadow 150ms linear;
+
+}
+
+.Link1:active {
+
+  height: 21px;
+  background-color: rgb(0, 83, 151);
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
+}
+
+.main-nav {
+  height: 30px;
+  width: 100%;
+  clear: both;
+  background-color: rgb(234, 234, 234);
+  box-shadow: 1px 1px 6px rgb(66, 66, 66);
+
+}
+
+.main-nav a:hover {
+
+  color: "white";
+  text-shadow: -1px -1px -2px #888;
+}
+
+.home--container {
+  clear: both;
 }

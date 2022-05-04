@@ -71,22 +71,22 @@ class Register extends React.Component {
 		const { email, username, password, error, hasUser } = this.state;
 		return (
 			<div className="auth--container">
-				<h1>Registre uma nova conta</h1>
+				<h3>Registre uma nova conta</h3>
 				{error && <p className="error-message">{error.message}</p>}
 				<form onSubmit={this.handleSubmit}>
-					<label class= "container1" htmlFor="username">Usuario</label>
-					<input class= "container1" type="text" name="username" id="username" value={username} onChange={this.handleChange} />
-					<label class= "container1"  htmlFor="email">Email </label>
-					<input type="text" name="email" id="email" value={email} onChange={this.handleChange} />
-					<label class= "container1" htmlFor="password">Senha</label>
+					<label className= "container1" htmlFor="username">Usuario</label><br/>
+					<input className= "container1" type="text" name="username" id="username" value={username} onChange={this.handleChange} /><br/>
+					<label className= "container1"  htmlFor="email">Email </label><br/>
+					<input type="text" name="email" id="email" value={email} onChange={this.handleChange} /><br/>
+					<label className= "container1" htmlFor="password">Senha</label><br/>
 					<input
 						type="password"
 						name="password"
 						id="password"
 						value={password}
 						onChange={this.handleChange}
-					/>
-					<button className="general-submit" class = "container1" children="Criar conta" />
+					/><br/>
+					<button className="bnt-success" children="Criar conta" />
 					<p>Já possui uma conta ? <Link className="login-btn" to="/login">Logar aqui</Link></p>
 				</form>
 				{hasUser && (

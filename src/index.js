@@ -37,21 +37,21 @@ class AppRouter extends React.Component {
 
       <Router>
         <div className="app">
-          <nav className="main-nav">
+          <div className="main-nav">
             {!this.state.user &&
-              <div className ="div1">
+              <div className ="right">
                 <Link className = "Link1"to="/login">Logar</Link>
                 <Link  className = "Link1" to="/register">Cadastrar-se</Link>
               </div>
             }
 
             {this.state.user &&
-              <div className = "div1">
+              <div className = "right">
                 <a className = "Link1"href="#!" onClick={this.logOutUser}>Sair</a>
                 <Link className ="Link1"to="/accout">Conta</Link>
               </div>
             }
-          </nav>
+          </div>
           <Switch>
             <Route path="/" element={<Home user={this.state.user} />} />
             <Route path="/login" element={<Login />} />

@@ -6,7 +6,7 @@ import Chat from './Chat';
 import { getDownloadURL, getStorage, uploadBytes, uploadBytesResumable } from "firebase/storage";
 import { getDatabase, ref, set, push } from "firebase/database";
 import { ref as sRef } from 'firebase/storage';
-
+import "./Home.css"
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -97,7 +97,7 @@ class Home extends React.Component {
                     <div className="allow-chat">
                         <form className="send-chat" onSubmit={this.handleSubmit}>
                             <input type="text" name="message" id="message" value={this.state.message} onChange={this.handleChange} placeholder='Digite sua mensagem' />
-                            <input type="file"  onChange={e => this.handleImg(e)} accept='image/png' />
+                            <input placeholder='img' type="file"  onChange={e => this.handleImg(e)} accept='image/png' />
                         </form>
                         <Chat></Chat>
                     </div>
