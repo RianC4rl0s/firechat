@@ -1,27 +1,14 @@
 // /components/Auth/Register.js
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import app from '../../firebase.js'
 import { Link } from 'react-router-dom';
 import './Auth.css';
-import Login from './Login';
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, updateProfile } from "firebase/auth";
+// import Login from './Login';
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { Navigate } from "react-router-dom";
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// import { initializeApp } from "firebase/app";
 
-// Your web app's Firebase configuration
-// const firebaseConfig = {
-// 	apiKey: "AIzaSyAqr3s1KDjJOnmWGaD_fRkOL62V4FXbOlc",
-// 	authDomain: "firechat-79b8b.firebaseapp.com",
-// 	projectId: "firechat-79b8b",
-// 	storageBucket: "firechat-79b8b.appspot.com",
-// 	messagingSenderId: "209700885076",
-// 	appId: "1:209700885076:web:b88c61eabe55f0e33e93c1"
-// };
-
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
 class Register extends React.Component {
 	constructor(props) {
 		super(props);

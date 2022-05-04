@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// eslint-disable-next-line no-unused-vars
 import app from '../../firebase';
 import Chat from './Chat';
 
@@ -41,18 +42,19 @@ class Home extends React.Component {
     render() {
         return (
             <div className="home--container">
-                <h1>Welcome to the chat!</h1>
+                <h1>Bem vindo</h1>
+                {this.props.user?.displayName}
                 {this.props.user &&
                     <div className="allow-chat">
                         <form className="send-chat" onSubmit={this.handleSubmit}>
-                            <input type="text" name="message" id="message" value={this.state.message} onChange={this.handleChange} placeholder='Leave a message...' />
+                            <input type="text" name="message" id="message" value={this.state.message} onChange={this.handleChange} placeholder='Digite sua mensagem' />
                         </form>
                         <Chat></Chat>
                     </div>
                 }
                 {!this.props.user &&
                     <div className="disallow-chat">
-                        <p><Link to="/login">Login</Link> or <Link to="/register">Register</Link> to start chatting!</p>
+                        <p><Link to="/login">Login</Link> or <Link to="/register">Cadastre-se</Link> Para bater um papo!</p>
                     </div>
                 }
             </div>

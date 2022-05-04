@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import app from "../../firebase"
 import { getDatabase, ref, onValue } from "firebase/database";
 class Chat extends React.Component {

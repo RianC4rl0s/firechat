@@ -1,12 +1,13 @@
 // /components/Auth/Register.js
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import app from '../../firebase.js'
 import { Link } from 'react-router-dom';
 import './Auth.css';
-import Login from './Login';
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, updateProfile } from "firebase/auth";
+// import Login from './Login';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Navigate } from "react-router-dom";
-import { initializeApp } from "firebase/app";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
