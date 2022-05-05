@@ -1,4 +1,4 @@
-import React, { /*useEffect ,*/ useState } from 'react';
+import React, { /*useEffect ,*/  useState } from 'react';
 import { Link } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
 import app from '../../firebase';
@@ -27,7 +27,15 @@ const Home = (props) => {
         // this.setState({ [e.target.name]: e.target.value });
         setMessage(e.target.value)
     }
-
+    // const [userId, setUserId] = useState("")
+    // useEffect(()=>{
+    //     const auth = getAuth();
+    //     const user = auth.currentUser;
+    //     console.log(auth)
+    //     setUserId(user.uid);
+    //     console.log(user)
+    // },[]);
+    
     const upimage = async () => {
         // let rurl = ''
         if (files !== null || files.name !== "") {
@@ -67,10 +75,13 @@ const Home = (props) => {
     }
     const handleSubmit = async e => {
         e.preventDefault();
+        const auth = getAuth();
+        const user = auth.currentUser;
+        
         if (message !== '') {
             let dUrl = "";
             console.log(files)
-            if (files.name) {
+            if (files.name && files !== undefined) {
                 dUrl = await upimage();
                 console.log(dUrl)
             }
@@ -82,6 +93,7 @@ const Home = (props) => {
 
             set(push(ref(db, "msg")), {
                 // set(push(ref(db, "general/" + new Date().getTime())), {
+                userId: user.uid,
                 message: message,
                 user: props.user.displayName,
                 // img: url,

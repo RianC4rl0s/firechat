@@ -26,5 +26,15 @@
 }
 .msgList{
     width: 400px;
-    list-style-image:none;
+    list-style:none;
 }
+.my-msg{
+   
+    clear: both;
+    float: right;
+}
+.others{
+
+    clear: both;
+    float: left;
+}  
