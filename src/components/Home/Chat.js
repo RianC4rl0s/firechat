@@ -44,13 +44,15 @@ class Chat extends React.Component {
                         return (
                             <li key={chat.id}>
                                 <label className='userLabel'>{chat.user}</label><br />
-                                {chat.message}
-                                {postDate.getDate() + '/' + (postDate.getMonth() + 1)}
-                                {chat.img !== "" ?
-                                    <img height="40px" src={chat.img} alt={chat.img} />
+                                {chat.message}<br />
+                                {chat.img !== null ?
+                                    <img height="100px" src={chat.img} alt={chat.img} />
                                     :
                                     <></>
                                 }
+                                <label className='dataLabel'>
+                                    {postDate.getDate() + '/' + (postDate.getMonth() + 1) +" "  }
+                                </label>
                             </li>
                         );
                     })}
