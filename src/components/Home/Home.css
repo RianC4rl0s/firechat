@@ -27,6 +27,7 @@
 .msgList{
     width: 400px;
     list-style:none;
+    overflow-y: auto;
 }
 .my-msg{
    

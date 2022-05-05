@@ -51,7 +51,7 @@ class Chat extends React.Component {
         return (
             <div className="chatbox">
                 {/* {console.log(this.chats)} */}
-                <ul style={{display:"block",}} className='msgList'>
+                <ul className='msgList'>
                     {this.state.chats.map(chat => {
                         const postDate = new Date(chat.date);
                         return (
