@@ -1,10 +1,11 @@
-.allow-chat{
+.allow-chat {
     text-align: start;
 }
-.home--container{
-    margin-top:10px;
-    margin-left:auto;
-    margin-right:auto;
+
+.home--container {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
     width: 500px;
     text-align: center;
     background-color: white;
@@ -13,29 +14,54 @@
     box-shadow: 3px 3px 10px rgb(122, 122, 122);
 }
 
-.userLabel{
+.userLabel {
     color: rgb(0, 105, 196);
     font-size: .75em;
 }
-.dataLabel{
+
+.dataLabel {
     color: rgb(0, 105, 196);
     font-size: .5em;
-    
+
     margin-left: auto;
     margin-right: 5px;
 }
-.msgList{
+
+.msgList {
     width: 400px;
-    list-style:none;
+    list-style: none;
     overflow-y: auto;
+    padding-right: 4px;
 }
-.my-msg{
+
+.msg-list-item {
    
+    margin-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    min-height: 45px;
+}
+
+.msg-list-item:active {
+    background-color: rgba(1, 114, 201, 0.187);
+}
+
+.msg-list-item:hover {
+    box-shadow: 1px 2px 4px #888;
+    -webkit-transition: box-shadow 200ms linear;
+    -ms-transition: box-shadow 200ms linear;
+    transition: box-shadow 200ms linear;
+    border-radius: 3px;
+}
+
+.my-msg {
+
     clear: both;
     float: right;
 }
-.others{
+
+.others {
 
     clear: both;
     float: left;
-}  
+}

@@ -56,7 +56,7 @@ class Chat extends React.Component {
                         const postDate = new Date(chat.date);
                         return (
 
-                            <li key={chat.id}>
+                            <li className='msg-list-item' key={chat.id}>
                                 <div className={`${this.handleUid(chat)}`}>
 
                                     <label className='userLabel'>{chat.user}</label><br />

@@ -125,8 +125,9 @@ const Home = (props) => {
             {props.user &&
                 <div className="allow-chat">
                     <form className="send-chat" onSubmit={handleSubmit}>
-                        <input type="text" name="message" id="message" value={message} onChange={handleChange} placeholder='Digite sua mensagem' />
-                        <input placeholder='img' type="file" onChange={e => handleImg(e)} accept='image/png' />
+                        <input style={{width:"90%"}} type="text"  name="message" id="message" value={message} onChange={handleChange} placeholder='Digite sua mensagem' />
+                        <br />
+                        <input style={{width:"200px"}} placeholder='img' type="file" onChange={e => handleImg(e)} accept='image/png' />
                     </form>
                     <Chat></Chat>
                 </div>

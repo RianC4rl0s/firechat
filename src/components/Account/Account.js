@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import app from '../../firebase.js'
 import { getAuth, updateProfile, deleteUser } from "firebase/auth";
 import { useNavigate } from "react-router";
-
+import "../Auth/Auth.css"
 const Account = () => {
     const navigate = useNavigate();
     const [name, setName] = useState("")
@@ -43,19 +43,24 @@ const Account = () => {
     }
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <div className="auth--container">
 
-                <label class = "container1" htmlFor="username">Novo nome</label>
-                <input type="text" name="username" id="username" onChange={(e) => setName(e.target.value)} />
-                {name}
-                <br />
-            </form>
-            <button onClick={(e) => {
-                e.preventDefault()
-                navigate(-1)
-            }}>Voltar</button>
-            {erro}
-            <button style={{ backgroundColor: "red", color: "white", borderRadius: "5px" }} onClick={handleDelete}>Deletar conta</button>
+                <form onSubmit={handleSubmit}>
+
+                    <label className="container1" htmlFor="username">Novo nome</label>
+                    <input type="text" name="username" id="username" onChange={(e) => setName(e.target.value)} />
+                    {name}
+                    <br />
+                </form>
+                <button 
+                className="bnt-success"
+                onClick={(e) => {
+                    e.preventDefault()
+                    navigate(-1)
+                }}>Voltar</button>
+                {erro}
+                <button className="bnt-danger" onClick={handleDelete}>Deletar conta</button>
+            </div>
         </>
     )
 }

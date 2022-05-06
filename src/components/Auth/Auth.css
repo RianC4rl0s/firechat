@@ -59,3 +59,47 @@
   -ms-transition: box-shadow 100ms linear;
   transition: box-shadow 100ms linear;
 }
+
+
+.bnt-danger {
+  border: none;
+  height: 25px;
+  background-color: rgb(179, 0, 0);
+  color: white;
+
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
+  margin: 5px 5px 5px 5px;
+  -webkit-transition: box-shadow 100ms linear;
+  -ms-transition: box-shadow 100ms linear;
+  transition: box-shadow 100ms linear;
+
+  border-radius: 8px;
+}
+
+.bnt-danger:hover {
+  background-color: rgb(227, 0, 0);
+  box-shadow: 2px 2px 3px #888;
+
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
+  margin: 5px 5px 5px 5px;
+  -webkit-transition: box-shadow 100ms linear;
+  -ms-transition: box-shadow 100ms linear;
+  transition: box-shadow 100ms linear;
+}
+
+.bnt-danger:active {
+  background-color: rgb(132, 12, 1);
+  box-shadow: 2px 2px 3px #888;
+
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
+  margin: 5px 5px 5px 5px;
+  -webkit-transition: box-shadow 100ms linear;
+  -ms-transition: box-shadow 100ms linear;
+  transition: box-shadow 100ms linear;
+}
